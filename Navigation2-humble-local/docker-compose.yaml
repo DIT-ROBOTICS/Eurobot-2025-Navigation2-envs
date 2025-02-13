@@ -18,6 +18,10 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - $HOME/.Xauthority:/home/user/.Xauthority 
 
+    # mount the serial device
+    devices:
+      - /dev:/dev  # Mount dev
+
     working_dir:
       /home/user/Eurobot-2025-Navigation2-ws
 
@@ -27,3 +31,4 @@ services:
     
     # [IMPORTANT 3/3] Change container hostname to that of the host machine's 
     # hostname: tars3017
+ 

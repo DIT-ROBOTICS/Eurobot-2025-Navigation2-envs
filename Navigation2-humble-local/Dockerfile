@@ -17,7 +17,7 @@ ARG SHELL=bash
 # Label
 ##############################################################################
 
-LABEL org.opencontainers.image.authors="tu"
+LABEL org.opencontainers.image.authors="Tu"
 LABEL shell="${SHELL}"
 
 ##############################################################################
@@ -51,31 +51,24 @@ RUN apt-get update && \
     build-essential \
     cmake \
     python3-colcon-common-extensions
-    # python3-pip
 
 # Install dependencies for ROS and Nav2
 RUN apt-get update && \
     apt-get install -y \
     libsdl-image1.2-dev \
     libsuitesparse-dev \
+    libfreeimage-dev \
     ros-humble-tf2-sensor-msgs \
     ros-humble-libg2o \
     ros-humble-teleop-twist-keyboard \
     ros-humble-navigation2 \
     ros-humble-nav2-bringup \
     ros-humble-gazebo-ros-pkgs \
-    ros-humble-gazebo-ros \
-    ros-humble-gazebo-plugins \
     ros-humble-geographic-msgs \
+    ros-humble-geometry-msgs \
     ros-humble-test-msgs \
-    ros-humble-bondcpp \
-    ros-humble-turtlebot3-gazebo
-    # ros-humble-slam-toolbox
-
-# # Install additional ROS 2 tools
-# RUN pip3 install -U \
-#     rosdep \
-#     vcstool
+    ros-humble-bondcpp  \
+    ros-humble-foxglove-bridge
 
 ##############################################################################
 # Set Language

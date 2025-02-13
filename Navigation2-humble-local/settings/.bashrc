@@ -117,11 +117,8 @@ if ! shopt -oq posix; then
 fi
 
 # ROS settings.
+# ! No MASTER in ROS2 !
 export ROS_HOSTNAME="127.0.0.1"
-export ROS_MASTER_URI=http://127.0.0.1:11311
 
-# Share Master with local computer
-# export ROS_HOSTNAME="192.168.50.132"
-# export ROS_MASTER_URI=http://192.168.50.11:11311
 source /opt/ros/humble/setup.bash
-source /home/user/Eurobot-2025-Navigation2-ws/install/setup.bash
+source /home/user/Eurobot-2025-Navigation2-ws/install/local_setup.bash
