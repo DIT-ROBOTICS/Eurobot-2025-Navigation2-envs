@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.8'
 
 services:
   navigation:
@@ -13,14 +13,10 @@ services:
 
     # mount our navigation code
     volumes:
-      # [IMPORTANT 2/3] Change the path to the navigation workspace on your host machine
-      - ${HOME}/Eurobot-2025/Eurobot-2025-ws:/home/user/Eurobot-2025-Navigation2-ws
+      - ${HOME}/Eurobot-2025/Eurobot-2025-ws:/home/user/Eurobot-2025-Navigation2-ws # TODO: Check for working directories
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - $HOME/.Xauthority:/home/user/.Xauthority 
-
-    # mount the serial device
-    devices:
-      - /dev:/dev  # Mount dev
+      - $HOME/.Xauthority:/home/user/.Xauthority
+      - /dev:/dev
 
     working_dir:
       /home/user/Eurobot-2025-Navigation2-ws
@@ -28,7 +24,3 @@ services:
     environment:
       - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
-    
-    # [IMPORTANT 3/3] Change container hostname to that of the host machine's 
-    # hostname: tars3017
- 
