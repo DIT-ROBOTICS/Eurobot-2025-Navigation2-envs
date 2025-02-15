@@ -10,7 +10,7 @@ FROM osrf/ros:humble-desktop-full-jammy
 
 ARG USERNAME=user
 ARG USERID=1003
-ARG USERGID=${USERID}
+ARG USERGID=1004
 ARG SHELL=bash
 
 ##############################################################################
@@ -67,7 +67,7 @@ RUN apt-get update && \
     ros-humble-geographic-msgs \
     ros-humble-geometry-msgs \
     ros-humble-test-msgs \
-    ros-humble-bondcpp  \
+    ros-humble-bondcpp \
     ros-humble-foxglove-bridge
 
 ##############################################################################

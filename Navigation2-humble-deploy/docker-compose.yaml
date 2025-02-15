@@ -29,7 +29,7 @@ services:
     environment: &ENV_11
       - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
-      - ROS_HOSTNAME=dit-2025-11
+      - ROS_HOSTNAME=dit-2025-11.local
       - ROS_DOMAIN_ID=12
     
 
@@ -92,7 +92,7 @@ services:
     environment: &ENV_12
       - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
-      - ROS_HOSTNAME=dit-2025-12
+      - ROS_HOSTNAME=dit-2025-12.local
       - ROS_DOMAIN_ID=12
     
 
@@ -136,38 +136,38 @@ services:
 
 
   ##### local #####
-  navigation-rviz-11:
-    build: .
-    image: *IMG_NAME
-    container_name: *CONTAINER_NAME
-    command: /bin/bash -c "cd /home/user/Eurobot-2025-Navigation2-ws && source install/local_setup.bash && ros2 launch navigation2_run rviz_launch.py" 
-    tty: true 
-    network_mode: host
-    ipc: host
-    privileged: True
-    deploy: *DEPLOY_SETTING
+  # navigation-rviz-11:
+  #   build: .
+  #   image: *IMG_NAME
+  #   container_name: *CONTAINER_NAME
+  #   command: /bin/bash -c "cd /home/user/Eurobot-2025-Navigation2-ws && source install/local_setup.bash && ros2 launch navigation2_run rviz_launch.py" 
+  #   tty: true 
+  #   network_mode: host
+  #   ipc: host
+  #   privileged: True
+  #   deploy: *DEPLOY_SETTING
 
-    volumes: *VOLUMES_LOCAL
-    environment:
-      - DISPLAY=${DISPLAY}  # Set display environment variable
-      - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
-      - &MY_IP ROS_HOSTNAME=192.168.50.109  # TODO: Check for IP Adress
-      - ROS_DOMAIN_ID=12
+  #   volumes: *VOLUMES_LOCAL
+  #   environment:
+  #     - DISPLAY=${DISPLAY}  # Set display environment variable
+  #     - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
+  #     - &MY_IP ROS_HOSTNAME=192.168.50.109  # TODO: Check for IP Adress
+  #     - ROS_DOMAIN_ID=12
 
-  navigation-rviz-12:
-    build: .
-    image: *IMG_NAME
-    container_name: *CONTAINER_NAME
-    command: /bin/bash -c "cd /home/user/Eurobot-2025-Navigation2-ws && source install/local_setup.bash && ros2 launch navigation2_run rviz_launch.py" 
-    tty: true 
-    network_mode: host
-    ipc: host
-    privileged: True
-    deploy: *DEPLOY_SETTING
+  # navigation-rviz-12:
+  #   build: .
+  #   image: *IMG_NAME
+  #   container_name: *CONTAINER_NAME
+  #   command: /bin/bash -c "cd /home/user/Eurobot-2025-Navigation2-ws && source install/local_setup.bash && ros2 launch navigation2_run rviz_launch.py" 
+  #   tty: true 
+  #   network_mode: host
+  #   ipc: host
+  #   privileged: True
+  #   deploy: *DEPLOY_SETTING
 
-    volumes: *VOLUMES_LOCAL
-    environment:
-      - DISPLAY=${DISPLAY}  # Set display environment variable
-      - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
-      - *MY_IP
-      - ROS_DOAMIN_ID=12
+  #   volumes: *VOLUMES_LOCAL
+  #   environment:
+  #     - DISPLAY=${DISPLAY}  # Set display environment variable
+  #     - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
+  #     - *MY_IP
+  #     - ROS_DOAMIN_ID=12
