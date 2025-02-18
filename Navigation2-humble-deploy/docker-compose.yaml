@@ -30,7 +30,7 @@ services:
       - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
       - ROS_HOSTNAME=dit-2025-11.local
-      - ROS_DOMAIN_ID=12
+      - ROS_DOMAIN_ID=25
     
 
   navigation-develop-11:
