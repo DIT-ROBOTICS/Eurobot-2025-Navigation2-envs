@@ -119,7 +119,6 @@ fi
 # ROS settings.
 # ** No MASTER in ROS2 
 export ROS_HOSTNAME="127.0.0.1"
-export ROS_DOMAIN_ID="12"
 
 source /opt/ros/humble/setup.bash
 source /home/user/Eurobot-2025-Navigation2-ws/install/local_setup.bash

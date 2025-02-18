@@ -24,6 +24,7 @@ services:
     environment: &ENV_LOCAL
       - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
+      - ROS_DOMAIN_ID=25
   
   navigation-develop-local:
     build: .
