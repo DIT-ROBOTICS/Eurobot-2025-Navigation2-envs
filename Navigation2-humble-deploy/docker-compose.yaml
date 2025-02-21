@@ -29,7 +29,7 @@ services:
     environment: &ENV_11
       - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
-      - ROS_HOSTNAME=dit-2025-11.local
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_DOMAIN_ID=25
     
 

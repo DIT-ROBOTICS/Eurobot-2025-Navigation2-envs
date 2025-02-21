@@ -68,7 +68,8 @@ RUN apt-get update && \
     ros-humble-geometry-msgs \
     ros-humble-test-msgs \
     ros-humble-bondcpp \
-    ros-humble-foxglove-bridge
+    ros-humble-foxglove-bridge \
+    ros-humble-rmw-cyclonedds-cpp
 
 ##############################################################################
 # Set Language
