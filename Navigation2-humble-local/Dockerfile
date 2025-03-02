@@ -108,6 +108,12 @@ WORKDIR /home/${USERNAME}
 COPY ./settings/.bashrc /home/${USERNAME}/.bashrc 
 
 ##############################################################################
+# Copy tf2_sensor_msgs to avoid error
+##############################################################################
+
+COPY ./settings/tf2_sensor_msgs.hpp /opt/ros/humble/include/tf2_sensor_msgs/tf2_sensor_msgs.hpp
+
+##############################################################################
 # Clean apt-cache
 ##############################################################################
 
