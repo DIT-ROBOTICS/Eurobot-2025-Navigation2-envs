@@ -25,4 +25,4 @@ services:
       - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-      - ROS_DOMAIN_ID=25
+      - ROS_DOMAIN_ID=69
