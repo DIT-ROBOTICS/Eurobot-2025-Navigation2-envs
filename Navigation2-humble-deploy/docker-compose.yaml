@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   ##### R2-11 #####
   navigation-build-11:
@@ -30,8 +28,7 @@ services:
       - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-      - ROS_DOMAIN_ID=25
-    
+      - ROS_DOMAIN_ID=11
 
   navigation-develop-11:
     build: .
@@ -92,7 +89,7 @@ services:
     environment: &ENV_12
       - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
-      - ROS_HOSTNAME=dit-2025-12.local
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_DOMAIN_ID=12
     
 
