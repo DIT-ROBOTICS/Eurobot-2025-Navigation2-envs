@@ -3,7 +3,7 @@ version: '3.8'
 services:
   navigation:
     build: .
-    image: tu123/navigation2-humble:navigation2-humble
+    image: rabbit025879/eurobot2025-navigation2-envs:latest
     container_name: navigation2
     command: /bin/bash
     tty: true
@@ -25,4 +25,4 @@ services:
       - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-      - ROS_DOMAIN_ID=69
+      - ROS_DOMAIN_ID=50  # ! Please distinguish the domain ID with other containers

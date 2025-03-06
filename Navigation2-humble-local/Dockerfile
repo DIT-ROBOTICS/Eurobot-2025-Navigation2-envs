@@ -58,6 +58,7 @@ RUN apt-get update && \
     libsdl-image1.2-dev \
     libsuitesparse-dev \
     libfreeimage-dev \
+    libyaml-cpp-dev \
     ros-humble-tf2-sensor-msgs \
     ros-humble-libg2o \
     ros-humble-teleop-twist-keyboard \
@@ -67,7 +68,7 @@ RUN apt-get update && \
     ros-humble-geographic-msgs \
     ros-humble-geometry-msgs \
     ros-humble-test-msgs \
-    ros-humble-bondcpp  \
+    ros-humble-bondcpp \
     ros-humble-foxglove-bridge \
     ros-humble-rmw-cyclonedds-cpp
 
@@ -108,7 +109,7 @@ WORKDIR /home/${USERNAME}
 COPY ./settings/.bashrc /home/${USERNAME}/.bashrc 
 
 ##############################################################################
-# Copy tf2_sensor_msgs to avoid error
+# Copy tf2_sensor_msgs to avoid error from building navigation2
 ##############################################################################
 
 COPY ./settings/tf2_sensor_msgs.hpp /opt/ros/humble/include/tf2_sensor_msgs/tf2_sensor_msgs.hpp

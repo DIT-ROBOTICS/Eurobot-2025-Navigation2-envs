@@ -1,8 +1,8 @@
 services:
-  ##### R2-11 #####
+  ##### machine-11 #####
   navigation-build-11:
-    build: .
-    image: &IMG_NAME tu123/navigation2-humble:navigation2-humble
+    # build: .  # Use the pre-built image
+    image: &IMG_NAME rabbit025879/eurobot2025-navigation2-envs:latest
     container_name: &CONTAINER_NAME navigation2
     command: &CMD_BUILD /bin/bash -c "cd /home/user/Eurobot-2025-Navigation2-ws && colcon build"  # TODO: Check for working directories
     tty: true
@@ -25,13 +25,13 @@ services:
       /home/user/Eurobot-2025-Navigation2-ws  # TODO: Check for working directories
 
     environment: &ENV_11
-      - DISPLAY=${DISPLAY}  # Set display environment variable
+      # - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_DOMAIN_ID=11
 
   navigation-develop-11:
-    build: .
+    # build: . # Use the pre-built image
     image: *IMG_NAME 
     container_name: *CONTAINER_NAME
     command: &CMD_DEVELOP /bin/bash
@@ -50,7 +50,7 @@ services:
     
 
   navigation-run-11:
-    build: .
+    # build: . # Use the pre-built image
     image: *IMG_NAME 
     container_name: *CONTAINER_NAME
     command: &CMD_RUN /bin/bash -c "cd /home/user/Eurobot-2025-Navigation2-ws && source install/local_setup.bash && ros2 launch navigation2_run real_launch.py"
@@ -69,9 +69,9 @@ services:
     
 
 
-  ##### R2-12 #####
+  ##### machine-12 #####
   navigation-build-12:
-    build: .
+    # build: . # Use the pre-built image
     image: *IMG_NAME
     container_name: *CONTAINER_NAME 
     command: *CMD_BUILD 
@@ -87,14 +87,14 @@ services:
     working_dir: *WORKING_DIR
 
     environment: &ENV_12
-      - DISPLAY=${DISPLAY}  # Set display environment variable
+      # - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_DOMAIN_ID=12
     
 
   navigation-develop-12:
-    build: .
+    # build: . # Use the pre-built image
     image: *IMG_NAME 
     container_name: *CONTAINER_NAME
     command: *CMD_DEVELOP 
@@ -113,7 +113,7 @@ services:
     
 
   navigation-run-12:
-    build: .
+    # build: . # Use the pre-built image
     image: *IMG_NAME 
     container_name: *CONTAINER_NAME
     command: *CMD_RUN 
@@ -130,41 +130,63 @@ services:
 
     environment: *ENV_12
 
+    ##### machine-13 #####
+  navigation-build-13:
+    # build: . # Use the pre-built image
+    image: *IMG_NAME
+    container_name: *CONTAINER_NAME 
+    command: *CMD_BUILD 
+    tty: true
+    network_mode: host
+    ipc: host
+    privileged: true
+    deploy: *DEPLOY_SETTING
 
+    # mount our navigation code
+    volumes: *VOLUMES
 
-  ##### local #####
-  # navigation-rviz-11:
-  #   build: .
-  #   image: *IMG_NAME
-  #   container_name: *CONTAINER_NAME
-  #   command: /bin/bash -c "cd /home/user/Eurobot-2025-Navigation2-ws && source install/local_setup.bash && ros2 launch navigation2_run rviz_launch.py" 
-  #   tty: true 
-  #   network_mode: host
-  #   ipc: host
-  #   privileged: True
-  #   deploy: *DEPLOY_SETTING
+    working_dir: *WORKING_DIR
 
-  #   volumes: *VOLUMES_LOCAL
-  #   environment:
-  #     - DISPLAY=${DISPLAY}  # Set display environment variable
-  #     - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
-  #     - &MY_IP ROS_HOSTNAME=192.168.50.109  # TODO: Check for IP Adress
-  #     - ROS_DOMAIN_ID=12
+    environment: &ENV_13
+      # - DISPLAY=${DISPLAY}  # Set display environment variable
+      - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - ROS_DOMAIN_ID=13
+    
 
-  # navigation-rviz-12:
-  #   build: .
-  #   image: *IMG_NAME
-  #   container_name: *CONTAINER_NAME
-  #   command: /bin/bash -c "cd /home/user/Eurobot-2025-Navigation2-ws && source install/local_setup.bash && ros2 launch navigation2_run rviz_launch.py" 
-  #   tty: true 
-  #   network_mode: host
-  #   ipc: host
-  #   privileged: True
-  #   deploy: *DEPLOY_SETTING
+  navigation-develop-13:
+    # build: . # Use the pre-built image
+    image: *IMG_NAME 
+    container_name: *CONTAINER_NAME
+    command: *CMD_DEVELOP 
+    tty: true
+    network_mode: host
+    ipc: host
+    privileged: true
+    deploy: *DEPLOY_SETTING
 
-  #   volumes: *VOLUMES_LOCAL
-  #   environment:
-  #     - DISPLAY=${DISPLAY}  # Set display environment variable
-  #     - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
-  #     - *MY_IP
-  #     - ROS_DOAMIN_ID=12
+    # mount our navigation code
+    volumes: *VOLUMES
+
+    working_dir: *WORKING_DIR
+
+    environment: *ENV_13
+    
+
+  navigation-run-13:
+    # build: . # Use the pre-built image
+    image: *IMG_NAME 
+    container_name: *CONTAINER_NAME
+    command: *CMD_RUN 
+    tty: true
+    network_mode: host
+    ipc: host
+    privileged: true
+    deploy: *DEPLOY_SETTING
+
+    # mount our navigation code
+    volumes: *VOLUMES
+
+    working_dir: *WORKING_DIR
+
+    environment: *ENV_13

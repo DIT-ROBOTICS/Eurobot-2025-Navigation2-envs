@@ -3,48 +3,66 @@ The Docker Environment of ROS2 Humble for Eurobot-2025-Navigation2
 
 ## One-Line Command To Run
 
-On 11, run mode
+On machine-11, run mode
 ```
-docker compose -f /home/navigation/Eurobot-2025-machine-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-deploy//docker-compose.yaml run --rm navigation-run-11
+docker compose -f /home/navigation/Eurobot-2025-machine-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-deploy/docker-compose.yaml run --rm navigation-run-11
 ```
-On 12, run mode
+On machine-12, run mode
 ```
-docker compose -f /home/navigation/Eurobot-2025-machine-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-deploy//docker-compose.yaml run --rm navigation-run-12
-```
-
-On R2-11, develop mode
-```
-docker compose -f /home/navigation/Eurobot-2025-machine-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-deploy//docker-compose.yaml run --rm navigation-develop-11
-```
-On R2-12, develop mode
-```
-docker compose -f /home/navigation/Eurobot-2025-machine-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-deploy//docker-compose.yaml run --rm navigation-develop-12
+docker compose -f /home/navigation/Eurobot-2025-machine-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-deploy/docker-compose.yaml run --rm navigation-run-12
 ```
 
-On Local, develop mode
+On machine-11, develop mode
 ```
-docker compose -f /home/navigation/Eurobot-2025-machine-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-deploy//docker-compose.yaml run --rm navigation-develop-local
+docker compose -f /home/navigation/Eurobot-2025-machine-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-deploy/docker-compose.yaml run --rm navigation-develop-11
+```
+On machine-12, develop mode
+```
+docker compose -f /home/navigation/Eurobot-2025-machine-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-deploy/docker-compose.yaml run --rm navigation-develop-12
 ```
 
-On Local, RViz mode
+On machine-11, build mode
 ```
-docker compose -f /home/tars3017/Documents/DIT/Eurobot-2024-Local-ws/src/Eurobot-2024-Navigation-Main/Eurobot-2024-Navigation-envs/deploy/docker_deploy.yaml run --rm navigation-rviz-11
+docker compose -f /home/navigation/Eurobot-2025-machine-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-deploy/docker-compose.yaml run --rm navigation-build-11
+```
+On machine-12, build mode
+```
+docker compose -f /home/navigation/Eurobot-2025-machine-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-deploy/docker-compose.yaml run --rm navigation-build-12
 ```
 
+On Local, rviz mode for machine-11
 ```
-docker compose -f /home/tars3017/Documents/DIT/Eurobot-2024-Local-ws/src/Eurobot-2024-Navigation-Main/Eurobot-2024-Navigation-envs/deploy/docker_deploy.yaml run --rm navigation-rviz-12
+docker compose -f /home/{user}/Eurobot-2025/Eurobot-2025-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-local/docker-bringup.yaml run --rm navigation-rviz-local-11
+```
+On Local, rviz mode for machine-12
+```
+docker compose -f /home/{user}/Eurobot-2025/Eurobot-2025-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-local/docker-bringup.yaml run --rm navigation-rviz-local-12
+```
+On local, develop mode
+```
+docker compose -f /home/{user}/Eurobot-2025/Eurobot-2025-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-local/docker-bringup.yaml run --rm navigation-develop-local
 ```
 
 ## ------------ Basic commands ------------
 
+## Pull docker image for container
+```
+docker pull rabbit025879/eurobot2025-navigation2-envs
+```
+
+## Build the image from Dockerfile (Under Navigation2-humble-local)
+```
+docker compose build --no-cache
+```
+
 ## Start Container
 ```
-docker compose -f "path to compose file/compose file name" up -d
+docker compose -f /home/{user}/Eurobot-2025/Eurobot-2025-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-local/docker-compose.yaml up -d
 ```
 
 ## Attach Container
 ```
-docker exec -it "container name" bash
+docker exec -it navigation2 bash
 ```
 
 ## Launching Navigation2

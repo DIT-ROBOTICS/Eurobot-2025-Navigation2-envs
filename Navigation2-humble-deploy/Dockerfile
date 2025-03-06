@@ -58,6 +58,7 @@ RUN apt-get update && \
     libsdl-image1.2-dev \
     libsuitesparse-dev \
     libfreeimage-dev \
+    libyaml-cpp-dev \
     ros-humble-tf2-sensor-msgs \
     ros-humble-libg2o \
     ros-humble-teleop-twist-keyboard \
