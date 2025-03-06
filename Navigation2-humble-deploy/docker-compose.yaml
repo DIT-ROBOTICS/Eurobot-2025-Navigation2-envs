@@ -2,7 +2,7 @@ services:
   ##### machine-11 #####
   navigation-build-11:
     # build: .  # Use the pre-built image
-    image: &IMG_NAME rabbit025879/eurobot2025-navigation2-envs:latest
+    image: &IMG_NAME rabbit025879/eurobot2025-navigation2-envs:machine
     container_name: &CONTAINER_NAME navigation2
     command: &CMD_BUILD /bin/bash -c "cd /home/user/Eurobot-2025-Navigation2-ws && colcon build"  # TODO: Check for working directories
     tty: true
