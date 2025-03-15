@@ -1,6 +1,5 @@
 services:
-  ##### machine-11 #####
-  navigation-build-11:
+  navigation-build:
     # build: .  # Use the pre-built image
     image: &IMG_NAME rabbit025879/eurobot2025-navigation2-envs:machine
     container_name: &CONTAINER_NAME navigation2
@@ -10,9 +9,9 @@ services:
     ipc: host
     privileged: true
     deploy: &DEPLOY_SETTING
-      resources:
-        limits:
-          cpus: '2'
+      # resources:
+      #   limits:
+      #     cpus: '2'
 
     # mount our navigation code
     volumes: &VOLUMES
@@ -24,13 +23,13 @@ services:
     working_dir: &WORKING_DIR
       /home/user/Eurobot-2025-Navigation2-ws  # TODO: Check for working directories
 
-    environment: &ENV_11
+    environment: &ENV
       # - DISPLAY=${DISPLAY}  # Set display environment variable
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-      - ROS_DOMAIN_ID=11
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID}
 
-  navigation-develop-11:
+  navigation-develop:
     # build: . # Use the pre-built image
     image: *IMG_NAME 
     container_name: *CONTAINER_NAME
@@ -46,10 +45,10 @@ services:
 
     working_dir: *WORKING_DIR
 
-    environment: *ENV_11
+    environment: *ENV
     
 
-  navigation-run-11:
+  navigation-run:
     # build: . # Use the pre-built image
     image: *IMG_NAME 
     container_name: *CONTAINER_NAME
@@ -65,128 +64,5 @@ services:
 
     working_dir: *WORKING_DIR
 
-    environment: *ENV_11
+    environment: *ENV
     
-
-
-  ##### machine-12 #####
-  navigation-build-12:
-    # build: . # Use the pre-built image
-    image: *IMG_NAME
-    container_name: *CONTAINER_NAME 
-    command: *CMD_BUILD 
-    tty: true
-    network_mode: host
-    ipc: host
-    privileged: true
-    deploy: *DEPLOY_SETTING
-
-    # mount our navigation code
-    volumes: *VOLUMES
-
-    working_dir: *WORKING_DIR
-
-    environment: &ENV_12
-      # - DISPLAY=${DISPLAY}  # Set display environment variable
-      - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-      - ROS_DOMAIN_ID=12
-    
-
-  navigation-develop-12:
-    # build: . # Use the pre-built image
-    image: *IMG_NAME 
-    container_name: *CONTAINER_NAME
-    command: *CMD_DEVELOP 
-    tty: true
-    network_mode: host
-    ipc: host
-    privileged: true
-    deploy: *DEPLOY_SETTING
-
-    # mount our navigation code
-    volumes: *VOLUMES
-
-    working_dir: *WORKING_DIR
-
-    environment: *ENV_12
-    
-
-  navigation-run-12:
-    # build: . # Use the pre-built image
-    image: *IMG_NAME 
-    container_name: *CONTAINER_NAME
-    command: *CMD_RUN 
-    tty: true
-    network_mode: host
-    ipc: host
-    privileged: true
-    deploy: *DEPLOY_SETTING
-
-    # mount our navigation code
-    volumes: *VOLUMES
-
-    working_dir: *WORKING_DIR
-
-    environment: *ENV_12
-
-    ##### machine-13 #####
-  navigation-build-13:
-    # build: . # Use the pre-built image
-    image: *IMG_NAME
-    container_name: *CONTAINER_NAME 
-    command: *CMD_BUILD 
-    tty: true
-    network_mode: host
-    ipc: host
-    privileged: true
-    deploy: *DEPLOY_SETTING
-
-    # mount our navigation code
-    volumes: *VOLUMES
-
-    working_dir: *WORKING_DIR
-
-    environment: &ENV_13
-      # - DISPLAY=${DISPLAY}  # Set display environment variable
-      - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-      - ROS_DOMAIN_ID=13
-    
-
-  navigation-develop-13:
-    # build: . # Use the pre-built image
-    image: *IMG_NAME 
-    container_name: *CONTAINER_NAME
-    command: *CMD_DEVELOP 
-    tty: true
-    network_mode: host
-    ipc: host
-    privileged: true
-    deploy: *DEPLOY_SETTING
-
-    # mount our navigation code
-    volumes: *VOLUMES
-
-    working_dir: *WORKING_DIR
-
-    environment: *ENV_13
-    
-
-  navigation-run-13:
-    # build: . # Use the pre-built image
-    image: *IMG_NAME 
-    container_name: *CONTAINER_NAME
-    command: *CMD_RUN 
-    tty: true
-    network_mode: host
-    ipc: host
-    privileged: true
-    deploy: *DEPLOY_SETTING
-
-    # mount our navigation code
-    volumes: *VOLUMES
-
-    working_dir: *WORKING_DIR
-
-    environment: *ENV_13
