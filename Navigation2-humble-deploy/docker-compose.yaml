@@ -8,6 +8,7 @@ services:
     network_mode: host
     ipc: host
     privileged: true
+    stop_grace_period: &STOP_GRACE_PERIOD 1.2s
     deploy: &DEPLOY_SETTING
       # resources:
       #   limits:
@@ -38,6 +39,7 @@ services:
     network_mode: host
     ipc: host
     privileged: true
+    stop_grace_period: *STOP_GRACE_PERIOD
     deploy: *DEPLOY_SETTING
 
     # mount our navigation code
@@ -57,6 +59,7 @@ services:
     network_mode: host
     ipc: host
     privileged: true
+    stop_grace_period: *STOP_GRACE_PERIOD
     deploy: *DEPLOY_SETTING
 
     # mount our navigation code
