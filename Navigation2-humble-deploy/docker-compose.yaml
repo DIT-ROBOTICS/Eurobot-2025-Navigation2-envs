@@ -8,7 +8,7 @@ services:
     network_mode: host
     ipc: host
     privileged: true
-    stop_grace_period: &STOP_GRACE_PERIOD 1.2s
+    stop_grace_period: &STOP_GRACE_PERIOD 1s
     deploy: &DEPLOY_SETTING
       # resources:
       #   limits:
