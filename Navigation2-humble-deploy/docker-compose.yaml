@@ -26,6 +26,7 @@ services:
 
     environment: &ENV
       # - DISPLAY=${DISPLAY}  # Set display environment variable
+      - RCUTILS_COLORIZED_OUTPUT=1
       - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_DOMAIN_ID=${ROS_DOMAIN_ID}
