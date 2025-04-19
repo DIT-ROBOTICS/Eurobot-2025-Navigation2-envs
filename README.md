@@ -30,6 +30,14 @@ On local, develop mode
 ```
 docker compose -f /home/{user}/Eurobot-2025/Eurobot-2025-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-local/docker-bringup.yaml run --rm navigation-develop-local
 ```
+On local, build mode
+```
+docker compose -f /home/{user}/Eurobot-2025/Eurobot-2025-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-local/docker-bringup.yaml run --rm navigation-build-local
+```
+On local, run mode
+```
+docker compose -f /home/{user}/Eurobot-2025/Eurobot-2025-ws/src/Eurobot-2025-Navigation2-envs/Navigation2-humble-local/docker-bringup.yaml run --rm navigation-run-local
+```
 
 ## ------------ Basic commands ------------
 
