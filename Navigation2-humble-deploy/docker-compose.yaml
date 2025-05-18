@@ -14,9 +14,10 @@ services:
       #   limits:
       #     cpus: '2'
 
-    # mount our navigation code
+    # mount our navigation code & share directory
     volumes: &VOLUMES
-      - /home/navigation/Eurobot-2025-machine-ws/:/home/user/Eurobot-2025-Navigation2-ws # TODO: Check for working directories
+      - /home/navigation/Eurobot-2025-machine-ws:/home/user/Eurobot-2025-Navigation2-ws # TODO: Check for working directories
+      - /home/share:/home/share
       - /tmp/.X11-unix:/tmp/.X11-unix
       - $HOME/.Xauthority:/home/user/.Xauthority 
       - /dev:/dev
